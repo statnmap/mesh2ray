@@ -11,7 +11,14 @@ Description: Transform mesh3d to objects that can be used with
     'rayshader' or 'rayrender'.
 License: GPL-3
 Imports: 
-    magrittr
+    geometry,
+    magrittr,
+    methods,
+    raster
+Suggests: 
+    knitr,
+    rmarkdown,
+    Rvcg
 VignetteBuilder: 
     knitr
 Encoding: UTF-8

@@ -1,0 +1,34 @@
+---
+title: "From mesh3d to rayshader"
+author: "Sébastien Rochette"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{01 - From mesh3d to rayshader}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.align = "center"
+)
+```
+
+## Packages
+```{r}
+library(Rvcg)
+library(mesh2ray)
+library(raster)
+```
+
+## Transfrom mesh3d to raster
+
+```{r}
+data(humface)
+r <- mesh_to_raster(humface)
+plot(r)
+```
+

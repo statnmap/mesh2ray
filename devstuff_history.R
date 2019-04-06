@@ -38,6 +38,7 @@ usethis::use_testthat()
 usethis::use_test("app")
 
 # _CI
+usethis::use_git()
 thinkridentity::use_gitlab_ci(image = "thinkr/runnerci", upgrade = "never")
 # usethis::use_travis()
 # usethis::use_appveyor()
@@ -48,6 +49,8 @@ thinkridentity::use_gitlab_ci(image = "thinkr/runnerci", upgrade = "never")
 
 
 # Documentation ----
+# CoC
+usethis::use_code_of_conduct()
 # Roxygen
 usethis::use_roxygen_md()
 # _Readme
@@ -55,8 +58,8 @@ usethis::use_readme_rmd()
 # _News
 usethis::use_news_md()
 # _Vignette
-usethis::use_vignette("aa-data-exploration")
-usethis::use_vignette("ab-model")
+usethis::use_vignette("aa-rayshader")
+usethis::use_vignette("ab-rayrender")
 devtools::build_vignettes()
 
 # _Book

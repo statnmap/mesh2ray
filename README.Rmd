@@ -14,36 +14,36 @@ knitr::opts_chunk$set(
 ```
 # mesh2ray
 
-The goal of mesh2ray is to ...
+The goal of mesh2ray is to transform mesh3d to objects that can be used with ['rayshader'](https://github.com/tylermorganwall/rayshader) or ['rayrender'](https://github.com/tylermorganwall/rayrender).
 
 ## Installation
 
-You can install the released version of mesh2ray from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of {mesh2ray} from Github
 
 ``` r
-install.packages("mesh2ray")
+#install.packages("remotes")
+remotes::install_github("statnmap/mesh2ray")
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
+## Play with mesh3d and ray's
 
 ```{r example}
-## basic example code
+library(mesh2ray)
+library(raster)
+library(Rvcg)
+data(humface)
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+## Transfrom mesh3d to raster
 
-```{r cars}
-summary(cars)
+```{r}
+r <- mesh_to_raster(humface)
+plot(r)
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
+```{r}
 
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
 ```
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
+
+Please note that the 'mesh2ray' project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
