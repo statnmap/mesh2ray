@@ -1,0 +1,20 @@
+Package: mesh2ray
+Title: Transform mesh3d to ray* objects
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Sebastien",
+           family = "Rochette",
+           role = c("aut", "cre"),
+           email = "sebastien@thinkr.fr",
+           comment = c(ORCID = "0000-0002-1565-9313"))
+Description: Transform mesh3d to objects that can be used with
+    'rayshader' or 'rayrender'.
+License: GPL-3
+Imports: 
+    magrittr
+VignetteBuilder: 
+    knitr
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
