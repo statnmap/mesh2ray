@@ -17,6 +17,7 @@ Imports:
     raster
 Suggests: 
     knitr,
+    rayshader,
     rmarkdown,
     Rvcg
 VignetteBuilder: 

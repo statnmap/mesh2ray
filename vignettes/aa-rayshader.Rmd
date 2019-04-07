@@ -22,13 +22,59 @@ knitr::opts_chunk$set(
 library(Rvcg)
 library(mesh2ray)
 library(raster)
+library(rayshader)
 ```
 
 ## Transfrom mesh3d to raster
 
+`humface` data is a mesh3d object. It is transformed as a raster object with `mesh_to_raster()`
+
 ```{r}
 data(humface)
-r <- mesh_to_raster(humface)
-plot(r)
+humface_r <- mesh_to_raster(humface)
+plot(humface_r)
+```
+
+## Transform raster to rayshader elevation matrix
+
+raster `humface_r` is extracted to be transformed as a matrix that can be used with {rayshader}.  
+A list is returned.
+
+```{r}
+humface_ray <- stack_to_ray(humface_r)
+
+# Rayshade raster
+zscale <- 0.1
+ambmat <- ambient_shade(humface_ray$elevation, zscale = zscale)
+raymat <- ray_shade(humface_ray$elevation, zscale = zscale, lambert = TRUE,
+                    sunangle = 45)
+
+ray_image <- humface_ray$elevation %>%
+  sphere_shade(texture = "unicorn") %>%
+  add_shadow(raymat, max_darken = 0.1) %>%
+  add_shadow(ambmat, max_darken = 0.5)
+
+plot_map(ray_image)
+```
+
+## Get elevation matrix and calculate image overlay
+
+```{r}
+img <- system.file("img/ThinkR_logo_500px.png", package = "mesh2ray")
+humface_img <- stack_to_ray(humface_r, img)
+
+# Rayshade raster
+zscale <- 0.25
+ambmat <- ambient_shade(humface_img$elevation, zscale = zscale)
+raymat <- ray_shade(humface_img$elevation, zscale = zscale, lambert = TRUE)
+
+ray_image <- humface_img$elevation %>%
+  sphere_shade(texture = "imhof4") %>%
+  add_overlay(humface_img$overlay, alphalayer = 0.99) %>% # Note overlay
+  add_shadow(raymat, max_darken = 0.01) %>%
+  add_shadow(ambmat, max_darken = 0.5) # %>% 
+# add_water(watermap, color = "#57B6FF") 
+
+plot_map(ray_image)
 ```
 
