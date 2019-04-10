@@ -15,3 +15,52 @@ knitr::opts_chunk$set(
   comment = "#>"
 )
 ```
+
+```{r, eval=FALSE}
+# Create simple mesh
+simple_mesh <- Rvcg::vcgIcosahedron()
+
+# _plot3d
+plot3d(simple_mesh, col = "cyan")
+aspect3d("iso")
+plot3d(simple_mesh, type = "wire", add = TRUE)
+plot3d(t(simple_mesh$vb), type = "s", radius = 0.1, add = TRUE)
+view3d(theta = 0, phi = 10, zoom = 0.6, fov = 80)
+# _snapshot
+rgl.snapshot(filename = file.path(extraWD, "rayrender-simple-1-mesh.png"))
+rgl::rgl.close()
+
+# 1. Uniformely resample mesh
+# _vcgUniformRemesh is included in mesh_to_cubes()
+simple_resample <- vcgUniformRemesh(simple_mesh, voxelSize = 0.5, multiSample = TRUE,
+                                discretize = TRUE)
+
+plot3d(simple_resample, col = "cyan")
+aspect3d("iso")
+plot3d(simple_resample, type = "wire", add = TRUE)
+plot3d(t(simple_resample$vb), type = "s", radius = 0.1, add = TRUE)
+view3d(theta = 0, phi = 10, zoom = 0.6, fov = 80)
+# _snapshot
+rgl.snapshot(filename = file.path(extraWD, "rayrender-simple-2-regularmesh.png"))
+rgl::rgl.close()
+
+# 2. Calculate cube positions in a specific scene
+# _vcgUniformRemesh is included in mesh_to_cubes()
+simple_cubes <- mesh2ray::mesh_to_cubes(simple_mesh, voxelSize = 0.5, scene_dim = c(80, 475))
+
+# 3. Draw with rayrender
+# _scene
+scene <- generate_cornell(lightintensity = 10)
+# _add cubes on scene
+scene <- mesh2ray::add_cubes_to_scene(scene, cubes = simple_cubes, 
+                                      material = dielectric(color = "green"))
+# _draw scene /!\ long calculation /!\
+if (!file.exists(file.path(extraWD, "rayrender-simple-3-scene.png"))) {
+  options(cores = 4)
+  render_scene(scene, lookfrom = c(278, 278, -800) ,
+               lookat = c(278, 278, 0), fov = 40, ambient_light = FALSE,
+               samples = 500, parallel = TRUE, clamp_value = 5,
+               filename =  file.path(extraWD, "rayrender-simple-3-scene.png"))
+}
+```
+

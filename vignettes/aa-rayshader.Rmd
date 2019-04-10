@@ -21,6 +21,7 @@ knitr::opts_chunk$set(
 ```{r}
 library(Rvcg)
 library(mesh2ray)
+library(rgdal)
 library(raster)
 library(rayshader)
 ```
