@@ -12,6 +12,8 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
+[![Travis build status](https://travis-ci.org/statnmap/mesh2ray.svg?branch=master)](https://travis-ci.org/statnmap/mesh2ray)
+
 # mesh2ray
 
 The goal of mesh2ray is to transform mesh3d to objects that can be used with ['rayshader'](https://github.com/tylermorganwall/rayshader) or ['rayrender'](https://github.com/tylermorganwall/rayrender).

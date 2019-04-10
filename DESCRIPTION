@@ -24,11 +24,15 @@ Imports:
     utils
 Suggests: 
     knitr,
+    pkgdown,
     rayshader,
     rgdal,
     rmarkdown
 VignetteBuilder: 
     knitr
+Remotes: 
+    tylermorganwall/rayrender,
+    tylermorganwall/rayshader
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

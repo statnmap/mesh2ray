@@ -85,7 +85,7 @@ visualidentity::open_pkgdown_function(path = "docs")
 # Dependencies ----
 # devtools::install_github("ThinkR-open/attachment")
 attachment::att_to_description()
-attachment::att_to_description(extra.suggests = c("bookdown", "pkgdown"))
+attachment::att_to_description(extra.suggests = c("pkgdown"))
 # attachment::create_dependencies_file()
 
 # Utils for dev ----

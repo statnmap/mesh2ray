@@ -5,3 +5,4 @@
 ^mesh2ray\.Rproj$
 ^\.Rproj\.user$
 ^reference$
+^\.travis\.yml$
