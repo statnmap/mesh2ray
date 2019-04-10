@@ -10,6 +10,9 @@ The goal of mesh2ray is to transform mesh3d to objects that can be used
 with [‘rayshader’](https://github.com/tylermorganwall/rayshader) or
 [‘rayrender’](https://github.com/tylermorganwall/rayrender).
 
+The corresponding blog post is [Play with mesh3d, rayshader and
+rayrender](https://statnmap.com/2019-04-02-mesh3d-rayshader-and-rayrender/).
+
 ## Installation
 
 You can install the released version of {mesh2ray} from Github
@@ -140,6 +143,9 @@ if (!file.exists(file.path(extraWD, "rayrender-simple-3-scene.png"))) {
 ```
 
 <img src="reference/figures/README-steprayrender-1.png" width="100%" />
+
+This package comes with a {pkgdown} documentation:
+<https://statnmap.github.io/mesh2ray/>
 
 Please note that the ‘mesh2ray’ project is released with a [Contributor
 Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project,
