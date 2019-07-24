@@ -41,6 +41,7 @@ usethis::use_test("app")
 # _CI
 usethis::use_git()
 thinkridentity::use_gitlab_ci(image = "thinkr/runnerci", upgrade = "never")
+tic::use_tic()
 # usethis::use_travis()
 # usethis::use_appveyor()
 # usethis::use_coverage()
