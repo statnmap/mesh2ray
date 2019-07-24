@@ -31,7 +31,6 @@ before_install:
   - sudo apt-get install -y libavfilter-dev
   - sudo apt-get install mesa-common-dev libglu1-mesa-dev freeglut3-dev
   - Rscript -e 'options(rgl.useNULL = TRUE)'
-  - Rscript -e 'update.packages(ask = FALSE)'
 
 env:
   global:
