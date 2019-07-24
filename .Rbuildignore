@@ -6,3 +6,5 @@
 ^\.Rproj\.user$
 ^reference$
 ^\.travis\.yml$
+^appveyor\.yml$
+^tic\.R$

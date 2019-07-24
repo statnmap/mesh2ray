@@ -41,6 +41,7 @@ usethis::use_test("app")
 # _CI
 usethis::use_git()
 thinkridentity::use_gitlab_ci(image = "thinkr/runnerci", upgrade = "never")
+tic::use_tic()
 # usethis::use_travis()
 # usethis::use_appveyor()
 # usethis::use_coverage()
@@ -85,7 +86,7 @@ visualidentity::open_pkgdown_function(path = "docs")
 # Dependencies ----
 # devtools::install_github("ThinkR-open/attachment")
 attachment::att_to_description()
-attachment::att_to_description(extra.suggests = c("pkgdown"))
+attachment::att_to_description(extra.suggests = c("pkgdown", "magick"))
 # attachment::create_dependencies_file()
 
 # Utils for dev ----
